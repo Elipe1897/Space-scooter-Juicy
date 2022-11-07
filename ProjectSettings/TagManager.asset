@@ -12,6 +12,7 @@ TagManager:
   - Fire
   - Sheild
   - SpaceShip
+  - Enemy
   layers:
   - Default
   - TransparentFX

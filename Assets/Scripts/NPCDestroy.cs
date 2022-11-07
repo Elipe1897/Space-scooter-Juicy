@@ -6,22 +6,39 @@ public class NPCDestroy : MonoBehaviour
 {
     // the varible for the speed and the directions they move and also so you can change the speed of the monster in unity
     [SerializeField, Range(1, 10)]
-    private float speed = 10;
+    private float speed = 2;
+
+    [SerializeField]
+    GameObject projectiles;
+
     private Vector3 direction = new Vector3(1, 0, 0);
+
     private Vector3 y = new Vector3(0, -0.3f, 0);
+
+    public float timer;
    
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-
+        timer = 0;
     }
     // Update is called once per frame-
-    void Update()
+    public void Update()
     {
         //makes the object move right 
         transform.position += speed * direction * Time.deltaTime;
+
+        timer += Time.deltaTime;
+
+        if (timer > 3)// checks if it has gone more than 3 second
+        {
+            //Creates a bullet from the monster and fires downwards
+            Instantiate(projectiles, transform.position + new Vector3(0, -1.2f, 0), Quaternion.identity);
+            transform.position += new Vector3(0, 0, 0) * Time.deltaTime;
+            timer = 0;
+        }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         // when this object collides with the tag "Wall" it changes direction 
         if (collision.transform.tag == "Wall") 
@@ -33,7 +50,6 @@ public class NPCDestroy : MonoBehaviour
         else if(collision.transform.tag == "Fire")
         {
             Destroy(gameObject);
-            ScoreManager.instance.AddPoint();
         }
         
 

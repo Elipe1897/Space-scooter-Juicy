@@ -17,15 +17,16 @@ public class Spaceship : MonoBehaviour
     private KeyCode Right;
     [SerializeField]
     private KeyCode Left;
-   
+
+    
     // Start is called before the first frame upda
     void Start()
-    {
-        
+    {   
+
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     { 
         timer += Time.deltaTime;
         {
@@ -46,7 +47,7 @@ public class Spaceship : MonoBehaviour
         }
         
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "EnemyFire") // when this object get hit by a object with the tag "EnemyFire" it destroys itself 
         {
@@ -56,6 +57,7 @@ public class Spaceship : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
+
     }
    
 }
