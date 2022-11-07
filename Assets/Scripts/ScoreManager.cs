@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
+
     public Text scoreText;
     public Text highscoreText;
     // varibles for the score and highscore
@@ -12,12 +13,12 @@ public class ScoreManager : MonoBehaviour
     int highscore = 0;
   
     
-    private void Awake()
+    public void Awake()
     {
         instance = this; // it makes itself an instance
     }
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         // if the score points is higher than the highscore it replace the old highsore with the new highscore
         highscore = PlayerPrefs.GetInt("highscore", 0);
@@ -25,9 +26,8 @@ public class ScoreManager : MonoBehaviour
         highscoreText.text = "HIGHSCORE: " + highscore.ToString();
     }
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
         if (highscore < score) // Looks if score is higher than highscore 
         {
             PlayerPrefs.SetInt("highscore", score);

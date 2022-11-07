@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 574978778778802608}
   - component: {fileID: 574978778778802609}
   - component: {fileID: 574978778778802606}
+  - component: {fileID: 2756644493644229665}
   m_Layer: 6
   m_Name: Monster 2
-  m_TagString: child
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,3 +132,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &2756644493644229665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574978778778802607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b76daa2d62bc743a289353164f4740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  projectiles: {fileID: 893988075057713627, guid: 0c9034b84382f324d89e00716cac648a, type: 3}
+  timer: 0

@@ -18,7 +18,7 @@ public class BossNPC : MonoBehaviour
     private GameObject Player;
     float timer = 0;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         //sets boss to false and hasMoved to false from the beginning
         Boss = false;
@@ -26,7 +26,7 @@ public class BossNPC : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if(timer > 2) // checks if it has gone more than 2 seconds
         {
@@ -47,7 +47,7 @@ public class BossNPC : MonoBehaviour
         }
         transform.position += speed * direction * Time.deltaTime; // makes the boss move 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Wall") // if it collides with the tag wall it moves down a bit and changes directions back
         {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shells : MonoBehaviour
+public class Shields : MonoBehaviour
 { // varible for the speed of this object, so you can change the speed of the object in unity and the direction this obeject moves 
     [SerializeField, Range(1, 10)]
     private float speed = 10;
@@ -16,11 +16,11 @@ public class Shells : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
       transform.position += speed * direction * Time.deltaTime; // Adds speed to the shells objects 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Wall") // if this object hits a obhect with the tag "Wall" it's direction will change with going back the same way
         {
