@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
+    [System.Serializable] //Allows me to change things in the unity editor - Leo N
+    
     public enum SpawnState { Spawning, Waitning, Counting }; //Defining enumurator "SpawnState" that has "Spawning, Waitning, Counting" in it - Leo N
 
-    [System.Serializable] //Allows me to change things in the unity editor - Leo N
     public class Wave //creating a class "Wave", Defining what wave is essentialy - Leo N
     {
         public string Name; //Name for the wave - Leo N
@@ -51,6 +52,7 @@ public class WaveSpawner : MonoBehaviour
             if(State != SpawnState.Spawning)//If SpawnState is not equal to Spawning then the waves should start - Leo N
             {
                 StartCoroutine(SpawnWave( Waves[NextWave] ) ); //Starting the spawning method - Leo N
+                WaveCountDown += 10;
             }
             else
             {

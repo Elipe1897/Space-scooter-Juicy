@@ -9,6 +9,9 @@ public class Shields : MonoBehaviour
     private Vector3 direction = new Vector3(1, 0, 0);
     private Vector3 y = new Vector3(0, 0, 0);
 
+    [SerializeField]
+    public ParticleSystem ExplosionEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,7 @@ public class Shields : MonoBehaviour
         {
             direction.x = -direction.x;
             transform.position += y;
+            Instantiate(ExplosionEffect,transform.position, Quaternion.identity);
         }
         if(collision.transform.tag == "EnemyFire") // if this collision with an object with the tag "EnemyFire" this object will be destroyed
         {

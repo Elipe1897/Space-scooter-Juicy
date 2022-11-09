@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     public void Start()
     {
         // if the score points is higher than the highscore it replace the old highsore with the new highscore
-        highscore = PlayerPrefs.GetInt("highscore", 0);
+        highscore = PlayerPrefs.GetInt("HIGHSCORE", 0);
         scoreText.text = score.ToString() + " POINTS";
         highscoreText.text = "HIGHSCORE: " + highscore.ToString();
     }
@@ -30,7 +30,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (highscore < score) // Looks if score is higher than highscore 
         {
-            PlayerPrefs.SetInt("highscore", score);
+            PlayerPrefs.SetInt("HIGHSCORE", score);
         }
     }
     public void AddPoint()// Adds 10 points to score
