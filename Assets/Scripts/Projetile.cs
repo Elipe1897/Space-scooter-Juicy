@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projetile : MonoBehaviour
 {
+    int[] colors = new int[5];
     // Start is called before the first frame update
     public void Start()
     {
