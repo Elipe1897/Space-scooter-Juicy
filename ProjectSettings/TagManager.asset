@@ -3,16 +3,31 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+<<<<<<< Updated upstream
+=======
+  - EnemyFire
+>>>>>>> Stashed changes
+  - Fire
+  - Sheild
+  - SpaceShip
+  - Enemy
+  - EnemyBig
+<<<<<<< Updated upstream
+  - EnemyBoss
+  - EnemyFire
+=======
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - post
   - Water
   - UI
-  - 
-  - 
+  - Enemy
+  - Shells
   - 
   - 
   - 
