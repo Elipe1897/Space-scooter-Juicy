@@ -21,7 +21,7 @@ public class Shields : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-      transform.position += speed * direction * Time.deltaTime; // Adds speed to the shells objects 
+      transform.position += speed * direction * Time.deltaTime; // Adds speed to the sheild objects 
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {

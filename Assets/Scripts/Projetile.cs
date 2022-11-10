@@ -18,21 +18,25 @@ public class Projetile : MonoBehaviour
     }
 
   
-    public void OnCollisionEnter2D(Collision2D collision) // Destroythe projetile when it hits one of theese tags
+    public void OnCollisionEnter2D(Collision2D collision) // Destroy the projetile when it hits one of theese tags
     {
-        if (collision.transform.tag == "child" || collision.transform.tag == "Father" ||
-            collision.transform.tag == "EnemyFire" || collision.transform.tag == "Sheild")
+        if ( collision.transform.tag == "EnemyFire" || collision.transform.tag == "Sheild" || collision.transform.tag == "Enemy")
         {
             Destroy(gameObject);
         }
-        if (collision.transform.tag == "child")
+        if (collision.transform.tag == "Enemy")
         {
-            ScoreManager.instance.AddPoint();
+            ScoreManager.instance.AddPoint(10);
             Waves.instance.AddKillcount();
         }
-        if (collision.transform.tag == "Father")
+        if (collision.transform.tag == "EnemyBig")
         {
-            ScoreManager.instance.AddPoint();
+            ScoreManager.instance.AddPoint(20);
+            Waves.instance.AddKillcount();
+        }
+        if (collision.transform.tag == "EnemyBoss")
+        {
+            ScoreManager.instance.AddPoint(50);
             Waves.instance.AddKillcount();
         }
     }

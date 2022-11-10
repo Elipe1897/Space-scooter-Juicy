@@ -33,14 +33,14 @@ public class ScoreManager : MonoBehaviour
             PlayerPrefs.SetInt("HIGHSCORE", score);
         }
     }
-    public void AddPoint()// Adds 10 points to score
+    public void AddPoint(int point)// Adds the set points to points in score - Elias
     {
-        score += 10;
+        score += point;
         scoreText.text = score.ToString() + " POINTS";
     }
-    public void HighAddPoint() // Adds 15 points to score
+    /*public void HighAddPoint() // Adds 15 points to score
     {
-        score += 15;
+        score += 20;
         scoreText.text = score.ToString() + "POINTS";
     }
         public void BossAddPoint() // Adds 50 points to score  

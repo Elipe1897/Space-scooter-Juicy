@@ -4,15 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Shell
-  - child
   - Wall
-  - Father
-  - EnemyFire
   - Fire
   - Sheild
   - SpaceShip
   - Enemy
+  - EnemyBig
+  - EnemyBoss
+  - EnemyFire
   layers:
   - Default
   - TransparentFX
