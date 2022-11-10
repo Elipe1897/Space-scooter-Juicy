@@ -11,8 +11,8 @@ public class ScoreManager : MonoBehaviour
     // varibles for the score and highscore
     public int score = 0;
     int highscore = 0;
-  
-    
+
+
     public void Awake()
     {
         instance = this; // it makes itself an instance
@@ -37,15 +37,15 @@ public class ScoreManager : MonoBehaviour
     {
         score += point;
         scoreText.text = score.ToString() + " POINTS";
-    }
-    /*public void HighAddPoint() // Adds 15 points to score
-    {
-        score += 20;
-        scoreText.text = score.ToString() + "POINTS";
-    }
-        public void BossAddPoint() // Adds 50 points to score  
-        {
-           score += 50;
-           scoreText.text = score.ToString() + " POINTS";
-        }
-}
+    } }
+    //public void HighAddPoint() // Adds 15 points to score
+  //  {
+       // score += 20;
+     //   scoreText.text = score.ToString() + "POINTS";
+   // }
+      //  public void BossAddPoint() // Adds 50 points to score  
+      //  {
+      //     score += 50;
+      //     scoreText.text = score.ToString() + " POINTS";
+      //  }
+//}
