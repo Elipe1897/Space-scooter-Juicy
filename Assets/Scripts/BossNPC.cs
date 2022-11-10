@@ -58,7 +58,6 @@ public class BossNPC : MonoBehaviour
         else if (collision.transform.tag == "Fire") // if it collides the tag Fire it destroys itself
         {
             Destroy(gameObject);
-            ScoreManager.instance.BossAddPoint();
         }
        if(collision.transform.tag == "Fire" == true)
         {
