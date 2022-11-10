@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projetile : MonoBehaviour
 {   
     int[] colors = new int[5];
+
     [SerializeField]
     public ParticleSystem BulletExplosionEffect;
 
@@ -23,27 +24,19 @@ public class Projetile : MonoBehaviour
   
     public void OnCollisionEnter2D(Collision2D collision) // Destroy the projetile when it hits one of theese tags
     {
-<<<<<<< Updated upstream
+
         if ( collision.transform.tag == "EnemyFire" || collision.transform.tag == "Sheild" || collision.transform.tag == "Enemy")
-=======
-        if (collision.transform.tag == "child" || collision.transform.tag == "Enemy" ||
-            collision.transform.tag == "EnemyFire" || collision.transform.tag == "Sheild")
->>>>>>> Stashed changes
         {
             Destroy(gameObject);
         }
+
         if (collision.transform.tag == "Enemy")
         {
-<<<<<<< Updated upstream
             ScoreManager.instance.AddPoint(10);
             Waves.instance.AddKillcount();
         }
+       
         if (collision.transform.tag == "EnemyBig")
-=======
-            ScoreManager.instance.AddPoint();
-        }
-        if (collision.transform.tag == "Enemy")
->>>>>>> Stashed changes
         {
             ScoreManager.instance.AddPoint(20);
             Waves.instance.AddKillcount();
@@ -53,7 +46,6 @@ public class Projetile : MonoBehaviour
             ScoreManager.instance.AddPoint(50);
             Waves.instance.AddKillcount();
         }
-
         if (collision.transform.tag == "EnemyFire")
         {
             Instantiate(BulletExplosionEffect, transform.position, Quaternion.identity);
