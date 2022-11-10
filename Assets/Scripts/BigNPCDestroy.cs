@@ -10,7 +10,7 @@ public class BigNPCDestroy : MonoBehaviour
 
     //changes the direction of the monster 
     private Vector3 direction = new Vector3(1, 0, 0);
-    private Vector3 y = new Vector3(0, -0.3f, 0);
+    private Vector3 y = new Vector3(0, -0.8f, 0);
 
     [SerializeField]
     private GameObject Monster;

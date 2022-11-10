@@ -30,7 +30,7 @@ public class Spaceship : MonoBehaviour
     { 
         timer += Time.deltaTime;
         {
-            if (Input.GetKeyDown(KeyCode.Space) && timer > 1) // checks if button space is pressed after 1 secoond or more and fire a shoot if so
+            if (Input.GetKeyDown(KeyCode.Space) && timer > 0.5f) // checks if button space is pressed after 1 secoond or more and fire a shoot if so
             {
                 Instantiate(cubeprefab, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
                 timer = 0;

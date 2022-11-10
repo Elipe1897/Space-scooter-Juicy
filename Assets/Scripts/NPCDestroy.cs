@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NPCDestroy : MonoBehaviour
 {
+    [SerializeField]
+    public ParticleSystem BulletExplosionEffect;
     // the varible for the speed and the directions they move and also so you can change the speed of the monster in unity
     [SerializeField, Range(1, 10)]
     private float speed = 2;
@@ -13,7 +15,7 @@ public class NPCDestroy : MonoBehaviour
 
     private Vector3 direction = new Vector3(1, 0, 0);
 
-    private Vector3 y = new Vector3(0, -0.3f, 0);
+    private Vector3 y = new Vector3(0, -1f, 0);
 
     public float timer;
    
@@ -45,6 +47,7 @@ public class NPCDestroy : MonoBehaviour
         {
             direction.x = -direction.x;
             transform.position += y;
+            Instantiate(BulletExplosionEffect, transform.position, Quaternion.identity);
         }
         // if it Collides with the object that has the tag fire it destroys itself and runs the "AddPoint"
         else if(collision.transform.tag == "Fire")

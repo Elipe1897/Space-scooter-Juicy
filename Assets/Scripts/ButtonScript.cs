@@ -59,7 +59,7 @@ public class ButtonScript : MonoBehaviour
 
     public void MainMenu()
     {
-
+        SceneManager.LoadScene("MainMenu"); //Loads into the choosen scene, Main menu scene in this case - Leo N
     }
     // Update is called once per frame
     void Update()

@@ -144,4 +144,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53dd5adb3067df4caf1198cc81a7965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KillCount: 4
+  BulletExplosionEffect: {fileID: 0}
+  KillCount: 0
