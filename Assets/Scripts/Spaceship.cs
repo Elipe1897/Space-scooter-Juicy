@@ -45,19 +45,32 @@ public class Spaceship : MonoBehaviour
         {
             transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
         }
+        Dash();
         
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag == "EnemyFire") // when this object get hit by a object with the tag "EnemyFire" it destroys itself 
+        if (collision.transform.tag == "EnemyFire" || collision.transform.tag == "Enemy") // when this object get hit by a object with the tag "EnemyFire" it destroys itself 
         {
             Destroy(gameObject);
         }
-        if(collision.transform.tag == "EnemyFire" == true) // if this obejct has been destroyed load "GameOver" scene
-        {
+        if(collision.transform.tag == "EnemyFire" || collision.transform.tag == "Enemy" == true) // if this obejct has been destroyed load "GameOver" scene
+        { 
             SceneManager.LoadScene("GameOver");
         }
 
+    }
+    void Dash()
+    {
+        if (Input.GetKeyUp(KeyCode.Q) && Input.GetKeyDown(KeyCode.A))
+        {
+            transform.position = new Vector3(transform.position.x - 2, transform.position.y, transform.position.z);
+        }
+        if (Input.GetKeyUp(KeyCode.E) && Input.GetKeyDown(KeyCode.D))
+        {
+            transform.position = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
+        }
+       
     }
    
 }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projetile : MonoBehaviour
-{   
-    int[] colors = new int[5];
+{
+    
 
     [SerializeField]
     public ParticleSystem BulletExplosionEffect;
@@ -18,11 +18,12 @@ public class Projetile : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        transform.position += new Vector3(0, 15, 0) * Time.deltaTime; // makes the shot travel upwards 
-    }
+        transform.position += new Vector3(0, 15, 0) * Time.deltaTime; // makes the shot travel upwards  - Elias
 
-  
-    public void OnCollisionEnter2D(Collision2D collision) // Destroy the projetile when it hits one of theese tags
+    }
+    
+
+    public void OnCollisionEnter2D(Collision2D collision) // Destroy the projetile when it hits one of theese tags - Elias
     {
 
         if ( collision.transform.tag == "EnemyFire" || collision.transform.tag == "Sheild" || collision.transform.tag == "Enemy")
@@ -30,7 +31,7 @@ public class Projetile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.transform.tag == "Enemy")
+        if (collision.transform.tag == "Enemy") // if the object hits the tag Enemy it runs the funktion AddPoint and 
         {
             ScoreManager.instance.AddPoint(10);
             Waves.instance.AddKillcount();

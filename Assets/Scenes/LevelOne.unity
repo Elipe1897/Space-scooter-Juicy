@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 294091677}
   - component: {fileID: 294091676}
   - component: {fileID: 294091679}
+  - component: {fileID: 294091680}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -642,6 +643,20 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &294091680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294091675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78ea224e4b532c48a351b7d90222393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  distance: 10
 --- !u!1 &333147244
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,6 +2271,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4017128597893769414, guid: f40636f5a71ba014bb824c0ada24fef6, type: 3}
+      propertyPath: m_Constraints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017128597963617254, guid: f40636f5a71ba014bb824c0ada24fef6, type: 3}
+      propertyPath: m_Constraints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017128598826312280, guid: f40636f5a71ba014bb824c0ada24fef6, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017128598826312280, guid: f40636f5a71ba014bb824c0ada24fef6, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017128598826312282, guid: f40636f5a71ba014bb824c0ada24fef6, type: 3}
+      propertyPath: m_Constraints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017128599436332603, guid: f40636f5a71ba014bb824c0ada24fef6, type: 3}
+      propertyPath: m_Constraints
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8632368426007461364, guid: f40636f5a71ba014bb824c0ada24fef6, type: 3}
       propertyPath: m_Name
       value: WaveHolder1

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Shields : MonoBehaviour
-{ // varible for the speed of this object, so you can change the speed of the object in unity and the direction this obeject moves 
+{ // varible for the speed of this object, so you can change the speed of the object in unity and the direction this obeject moves - Elias
     [SerializeField, Range(1, 10)]
     private float speed = 10;
     private Vector3 direction = new Vector3(1, 0, 0);
@@ -21,17 +21,17 @@ public class Shields : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-      transform.position += speed * direction * Time.deltaTime; // Adds speed to the sheild objects 
+      transform.position += speed * direction * Time.deltaTime; // Adds speed to the sheild objects  - Elias
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Wall") // if this object hits a obhect with the tag "Wall" it's direction will change with going back the same way
+        if (collision.transform.tag == "Wall") // if this object hits a obhect with the tag "Wall" it's direction will change with going back the same way  - Elias
         {
             direction.x = -direction.x;
             transform.position += y;
             Instantiate(ExplosionEffect,transform.position, Quaternion.identity);
         }
-        if(collision.transform.tag == "EnemyFire") // if this collision with an object with the tag "EnemyFire" this object will be destroyed
+        if(collision.transform.tag == "EnemyFire" || collision.transform.tag == "Enemy") // if this collision with an object with the tag "EnemyFire" this object will be destroyed - Elias
         {
             Destroy(gameObject);
         }
