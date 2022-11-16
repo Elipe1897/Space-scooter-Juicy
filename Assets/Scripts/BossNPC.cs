@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class BossNPC : MonoBehaviour
 {
+    [SerializeField]
+    public ParticleSystem ExplosionEffect;
+    public ParticleSystem ExplosionEffectDeath;
+
     //Sets the at 10 and you can change the speed in unity 
     [SerializeField, Range(1, 15)]
     private float speed = 10;
@@ -28,14 +32,14 @@ public class BossNPC : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if(timer > 2) // checks if it has gone more than 2 seconds
+        if (timer > 2) // checks if it has gone more than 2 seconds
         {
             // creats a bullet if it has gone more than 2 seconds
             timer = 0;
             transform.position += new Vector3(0, 0, 0) * Time.deltaTime;
             Instantiate(Player, transform.position + new Vector3(0, -1.2f, 0), Quaternion.identity);
         }
-       
+
         if (ScoreManager.instance.score > 329) // if score is more than 185 points the boss apears 
         {
             Boss = true;
@@ -43,7 +47,7 @@ public class BossNPC : MonoBehaviour
         if (Boss == true && hasMoved == false) // if boss is true and hasMoved is false it moves the boss into the gamescene
         {
             transform.position = new Vector3(-1.4f, 4.38f, 1);
-            hasMoved = true; 
+            hasMoved = true;
         }
         transform.position += speed * direction * Time.deltaTime; // makes the boss move 
     }
@@ -53,16 +57,16 @@ public class BossNPC : MonoBehaviour
         {
             direction.x = -direction.x;
             transform.position += y;
-
+            Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
         }
         else if (collision.transform.tag == "Fire") // if it collides the tag Fire it destroys itself
         {
             Destroy(gameObject);
-            ScoreManager.instance.BossAddPoint();
+            //ScoreManager.instance.BossAddPoint();
         }
-       if(collision.transform.tag == "Fire" == true)
+        if (collision.transform.tag == "Fire")
         {
-            SceneManager.LoadScene("Victory");
+            Instantiate(ExplosionEffectDeath, transform.position, Quaternion.identity);
         }
 
     }

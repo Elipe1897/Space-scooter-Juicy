@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+    public static CameraShake instance;
+
     [SerializeField]
     public Vector2 freq;
     [SerializeField]
@@ -12,11 +14,11 @@ public class CameraShake : MonoBehaviour
     Vector2 time;
 
     [SerializeField]
-    bool ShouldShake;
+    public bool ShouldShake;
 
     void Start()
     {
-        
+        instance = this;
     }
 
     // Update is called once per frame
@@ -37,5 +39,18 @@ public class CameraShake : MonoBehaviour
 
         transform.localPosition = ShakePos;
 
+    }
+
+    public IEnumerator ShakeOn()
+    {
+        ShouldShake = true;
+        yield return new WaitForSeconds(0.05f);
+        ShouldShake = false;
+
+    }
+
+    public void ShakeTrue()
+    {
+        StartCoroutine(ShakeOn());
     }
 }

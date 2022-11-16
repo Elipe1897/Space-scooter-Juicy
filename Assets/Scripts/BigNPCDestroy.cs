@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BigNPCDestroy : MonoBehaviour
 {
+    [SerializeField]
+    public ParticleSystem ExplosionEffect;
+    public ParticleSystem ExplosionEffectDeath;
+    public int AlienLives;
+
     //So you can change the speed in unity and a variable for the speed 
     [SerializeField, Range(1, 10)]
     private float speed = 10;
@@ -23,13 +28,18 @@ public class BigNPCDestroy : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        
+        AlienLives = 2;
     }
     // Update is called once per frame
     public void Update()
     {
         timer += Time.deltaTime;
-        if(timer > 3)// checks if it has gone more than 3 second
+        if (AlienLives == 0)
+        {
+            Destroy(gameObject);
+        }
+
+        if (timer > 3)// checks if it has gone more than 3 second
         {
             //Creates a bullet from the monster and fires downwards
             timer = 0;
@@ -43,13 +53,15 @@ public class BigNPCDestroy : MonoBehaviour
     {
         if (collision.transform.tag == "Wall")// if it collides with the tag Wall it changes direction
         {
+            Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
             direction.x = -direction.x;
             transform.position += y;
-
         }
-        else if (collision.transform.tag == "Fire")/* if it collides with the tag Fire
-                                                    it destroys the object and runs the HighAddPoint in the ScoreManager script*/
-            Destroy(gameObject);
+        else if (collision.transform.tag == "Fire")
+        {
+            Instantiate(ExplosionEffectDeath, transform.position, Quaternion.identity);
+            AlienLives--;
         }
 
     }
+}

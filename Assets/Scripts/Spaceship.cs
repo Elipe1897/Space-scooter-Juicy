@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Spaceship : MonoBehaviour
 {
+    public static Spaceship instance;
+    [SerializeField]
+    public ParticleSystem PlayerDeathEffect;
+    public ParticleSystem PlayerWallEffect;
     //variable för objetet som ska skapas
     [SerializeField]
     private GameObject cubeprefab;
-    float timer = 0; 
+    float timer = 0;
     //varible for how fast you can move the ship and so you can change the speed of it in unity
     [SerializeField, Range(1, 10)]
     private float speed = 4;
@@ -18,17 +22,31 @@ public class Spaceship : MonoBehaviour
     [SerializeField]
     private KeyCode Left;
 
-    
-    // Start is called before the first frame upda
-    void Start()
-    {   
+    public bool BeginGame;
+    public GameObject BeginGameText;
 
+
+    // Start is called before the first frame upda
+    public void Start()
+    {
+        instance = this;
+        Time.timeScale = 0;
+        BeginGameText.SetActive(true);
     }
 
     // Update is called once per frame
     public void Update()
-    { 
+    {
         timer += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space) || BeginGame == true)
+        {
+            Debug.Log("Game Begins!");
+            BeginGameText.SetActive(false);
+            Time.timeScale = 1;
+            BeginGame = false;
+        }
+            
+
         {
             if (Input.GetKeyDown(KeyCode.Space) && timer > 0.5f) // checks if button space is pressed after 1 secoond or more and fire a shoot if so
             {
@@ -45,19 +63,29 @@ public class Spaceship : MonoBehaviour
         {
             transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
         }
-        
+
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject);
+        SceneManager.LoadScene("GameOver");
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "EnemyFire") // when this object get hit by a object with the tag "EnemyFire" it destroys itself 
         {
-            Destroy(gameObject);
+            Instantiate(PlayerDeathEffect, transform.position, Quaternion.identity);
+            ScoreManager.instance.RemoveLife();
+            //Destroy(gameObject);
         }
-        if(collision.transform.tag == "EnemyFire" == true) // if this obejct has been destroyed load "GameOver" scene
+
+        if (collision.transform.tag == "Wall")
         {
-            SceneManager.LoadScene("GameOver");
+            Instantiate(PlayerWallEffect, transform.position, Quaternion.identity);
+
         }
 
     }
-   
+
 }

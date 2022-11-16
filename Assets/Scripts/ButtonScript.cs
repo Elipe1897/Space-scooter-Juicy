@@ -25,7 +25,7 @@ public class ButtonScript : MonoBehaviour
         PauseMenu.SetActive(false);
 
     }
-    public void startbutton() //Function for a button - Leo N
+    public void Startbutton() //Function for a button - Leo N
     {
         SceneManager.LoadScene("LevelOne"); //Loads into the choosen scene, Game scene in this case - Leo N
     }
